@@ -35,7 +35,7 @@ export const translations = {
       aboutCardText: "Desenvolvedor front-end em formação, com foco em React, CSS modular e aplicações web com boa experiência de uso. Tenho prática com componentização, rotas, estado e organização de projetos, sempre priorizando legibilidade e manutenção do código. Busco oportunidade de estágio/júnior para evoluir em time, contribuir com entregas reais e continuar aprofundando fundamentos de front-end.",
 
       aboutQuickTitle: "Contato rápido",
-      aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: /seu-linkedin", "GitHub: https://github.com/Renatoxdev"],
+      aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: https://www.linkedin.com/in/renato-noronha-aa1402176/", "GitHub: https://github.com/Renatoxdev"],
 
       projectsTitle: "Projetos",
       projectsSubtitle: "Seleção de entregas com foco em React e boas práticas",
@@ -63,7 +63,6 @@ export const translations = {
       contactFormMessageLabel: "Mensagem",
       contactFormMessagePlaceholder: "Escreva sua mensagem...",
       contactFormSubmit: "Enviar mensagem",
-      contactFormHint: "Isso vai abrir seu app de e-mail com a mensagem pronta.",
       contactFormInvalid: "Preencha nome, email e mensagem.",
       contactFormOpening: "Abrindo seu cliente de e-mail...",
 
@@ -126,7 +125,7 @@ export const translations = {
       aboutCardText: "Front-end developer in training, focusing on React, modular CSS, and web applications with solid experience. I have experience with componentization, routing, state, and project organization, always prioritizing code readability and maintainability. I am looking for an internship/junior opportunity to grow as part of a team, contribute to real projects, and continue to deepen my front-end fundamentals.",
 
       aboutQuickTitle: "Quick contact",
-      aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: /your-linkedin", "GitHub: https://github.com/Renatoxdev"],
+      aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: https://www.linkedin.com/in/renato-noronha-aa1402176/", "GitHub: https://github.com/Renatoxdev"],
 
       projectsTitle: "Projects",
       projectsSubtitle: "A selection of work focused on React and best practices",
@@ -154,7 +153,6 @@ export const translations = {
       contactFormMessageLabel: "Message",
       contactFormMessagePlaceholder: "Write your message...",
       contactFormSubmit: "Send message",
-      contactFormHint: "This will open your email client with a pre-filled message.",
       contactFormInvalid: "Please fill name, email and message.",
       contactFormOpening: "Opening your email client...",
     },

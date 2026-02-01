@@ -161,7 +161,7 @@ export default function Home() {
                   <a className={styles.link} href="hhttps://github.com/Renatoxdev" target="_blank" rel="noreferrer">
                     GitHub
                   </a>
-                  <a className={styles.link} href="https://linkedin.com/" target="_blank" rel="noreferrer">
+                  <a className={styles.link} href="https://www.linkedin.com/in/renato-noronha-aa1402176/" target="_blank" rel="noreferrer">
                     LinkedIn
                   </a>
                   <a className={styles.link} href="mailto:Renatoxdev@gmail.com">
@@ -228,7 +228,6 @@ export default function Home() {
                     </a>
                   </div>
 
-                  <p className={styles.hint}>{t("home.contactFormHint")}</p>
                   {status ? <p className={styles.status}>{status}</p> : null}
                 </form>
               </div>
