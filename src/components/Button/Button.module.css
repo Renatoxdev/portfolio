@@ -1,0 +1,28 @@
+.button {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 140ms ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--primary);
+  color: var(--primaryText);
+  border-color: var(--primary);
+}
+
+.secondary {
+  background: var(--surface);
+  color: var(--text);
+}

@@ -1,0 +1,99 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 72px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.inner {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 800;
+  padding: 10px 10px;
+  border-radius: 12px;
+}
+
+.link:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+}
+
+.langLabel {
+  font-weight: 800;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.langBtn {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.langActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primaryText);
+}
+
+.cta {
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .langLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .nav {
+    display: none;
+  }
+}
