@@ -158,10 +158,20 @@ export default function Home() {
               <div className={styles.contactCard}>
                 <h3 className={styles.h3}>{t("home.contactLinksTitle")}</h3>
                 <div className={styles.links}>
-                  <a className={styles.link} href="hhttps://github.com/Renatoxdev" target="_blank" rel="noreferrer">
+                  <a
+                    className={styles.link}
+                    href="https://github.com/Renatoxdev"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     GitHub
                   </a>
-                  <a className={styles.link} href="https://www.linkedin.com/in/renato-noronha-aa1402176/" target="_blank" rel="noreferrer">
+                  <a
+                    className={styles.link}
+                    href="https://www.linkedin.com/in/renato-noronha-aa1402176/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     LinkedIn
                   </a>
                   <a className={styles.link} href="mailto:Renatoxdev@gmail.com">
