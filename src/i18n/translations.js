@@ -32,7 +32,7 @@ export const translations = {
       aboutTitle: "Sobre mim",
       aboutSubtitle: "Quem eu sou e no que eu foco",
       aboutCardTitle: "Apresentação",
-      aboutCardText: "Desenvolvedor front-end em formação, com foco em React, CSS modular e aplicações web com boa experiência de uso. Tenho prática com componentização, rotas, estado e organização de projetos, sempre priorizando legibilidade e manutenção do código. Busco oportunidade de estágio/júnior para evoluir em time, contribuir com entregas reais e continuar aprofundando fundamentos de front-end.",
+      aboutCardText: "Desenvolvedor front-end, com foco em React, CSS modular e aplicações web com boa experiência de uso. Tenho prática com componentização, rotas, estado e organização de projetos, sempre priorizando legibilidade e manutenção do código. Busco oportunidade de estágio/júnior para evoluir em time, contribuir com entregas reais e continuar aprofundando fundamentos de front-end.",
 
       aboutQuickTitle: "Contato rápido",
       aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: https://www.linkedin.com/in/renato-noronha-aa1402176/", "GitHub: https://github.com/Renatoxdev"],
@@ -122,7 +122,7 @@ export const translations = {
       aboutTitle: "About me",
       aboutSubtitle: "Who I am and what I focus on",
       aboutCardTitle: "Introduction",
-      aboutCardText: "Front-end developer in training, focusing on React, modular CSS, and web applications with solid experience. I have experience with componentization, routing, state, and project organization, always prioritizing code readability and maintainability. I am looking for an internship/junior opportunity to grow as part of a team, contribute to real projects, and continue to deepen my front-end fundamentals.",
+      aboutCardText: "Front-end developer, focusing on React, modular CSS, and web applications with solid experience. I have experience with componentization, routing, state, and project organization, always prioritizing code readability and maintainability. I am looking for an internship/junior opportunity to grow as part of a team, contribute to real projects, and continue to deepen my front-end fundamentals.",
 
       aboutQuickTitle: "Quick contact",
       aboutQuickItems: ["Email: Renatoxdev@gmail.com", "LinkedIn: https://www.linkedin.com/in/renato-noronha-aa1402176/", "GitHub: https://github.com/Renatoxdev"],
