@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import AppLayout from "./components/AppLayout/AppLayout.jsx";
-import Home from "./pages/Home/Home.jsx";
-import ProjectDetails from "./pages/ProjectDetails/ProjectDetails.jsx";
-import NotFound from "./pages/NotFound/NotFound.jsx";
+import AppLayout from "./components/AppLayout/AppLayout";
+import Home from "./pages/Home/Home";
+import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
+import NotFound from "./pages/NotFound/NotFound";
 
 export default function App() {
   return (

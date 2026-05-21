@@ -1,30 +1,22 @@
 import { Link } from "react-router-dom";
-import Tag from "../Tag/Tag.jsx";
+import Tag from "../Tag/Tag";
 import styles from "./ProjectCard.module.css";
-import { useI18n } from "../../i18n/useI18n.js";
+import { useI18n } from "../../i18n/useI18n";
+import type { Project } from "../../types/project";
 
-function pickLang(value, lang) {
-  if (typeof value === "string") return value;
-  if (value && typeof value === "object") return value[lang] ?? value.pt ?? "";
-  return "";
-}
+type ProjectCardProps = {
+  project: Project;
+};
 
-function pickList(value, lang) {
-  if (Array.isArray(value)) return value;
-  if (value && typeof value === "object" && Array.isArray(value[lang])) return value[lang];
-  if (value && typeof value === "object" && Array.isArray(value.pt)) return value.pt;
-  return [];
-}
-
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const { lang, t } = useI18n();
-  const cover = Array.isArray(project.images) ? project.images[0] : undefined;
+  const cover = project.images[0];
 
-  const title = pickLang(project.title, lang);
-  const summary = pickLang(project.summary, lang);
-  const techList = pickList(project.tech, lang).slice(0, 3);
+  const title = project.title[lang];
+  const summary = project.summary[lang];
+  const techList = project.tech[lang].slice(0, 3);
 
-  const imgClass = styles.coverImg || styles.img;
+  const imgClass = styles.coverImg ?? styles.img;
 
   return (
     <article className={styles.card}>

@@ -1,19 +1,31 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useLocation } from "react-router-dom";
-import Container from "../../components/Container/Container.jsx";
-import Section from "../../components/Section/Section.jsx";
-import Button from "../../components/Button/Button.jsx";
-import ProjectCard from "../../components/ProjectCard/ProjectCard.jsx";
+import Container from "../../components/Container/Container";
+import Section from "../../components/Section/Section";
+import Button from "../../components/Button/Button";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import styles from "./Home.module.css";
-import { projects } from "../../data/projects.js";
-import { useI18n } from "../../i18n/useI18n.js";
+import { projects } from "../../data/projects";
+import { useI18n } from "../../i18n/useI18n";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/SEU_ID_AQUI";
+
+type ContactForm = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type SubmitState = "idle" | "loading" | "success" | "error";
 
 export default function Home() {
   const { t } = useI18n();
   const location = useLocation();
 
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState<ContactForm>({ name: "", email: "", message: "" });
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [status, setStatus] = useState("");
+  const text = (key: string) => String(t(key));
 
   useEffect(() => {
     if (!location.hash) return;
@@ -25,24 +37,18 @@ export default function Home() {
   const aboutQuickItems = t("home.aboutQuickItems");
   const frontItems = t("home.skillsFrontItems");
   const stylingItems = t("home.skillsStylingItems");
-  const backItems = t("home.skillsBackItems");       // ← novo
+  const backItems = t("home.skillsBackItems");
   const qualityItems = t("home.skillsQualityItems");
   const deployItems = t("home.skillsDeployItems");
 
-  const mailTo = useMemo(() => {
-    const to = "Renatoxdev@gmail.com";
-    const subject = `Portfolio: ${form.name || "Contato"}`;
-    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
-    return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [form]);
-
-  function onChange(e) {
+  function onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitState("idle");
     setStatus("");
 
     const nameOk = form.name.trim().length >= 2;
@@ -50,14 +56,36 @@ export default function Home() {
     const msgOk = form.message.trim().length >= 10;
 
     if (!nameOk || !emailOk || !msgOk) {
-      setStatus(t("home.contactFormInvalid"));
+      setSubmitState("error");
+      setStatus(text("home.contactFormInvalid"));
       return;
     }
 
-    setStatus(t("home.contactFormOpening"));
-    window.location.href = mailTo;
-  }
+    setSubmitState("loading");
+    setStatus(text("home.contactFormSending"));
 
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error("Formspree request failed");
+      }
+
+      setForm({ name: "", email: "", message: "" });
+      setSubmitState("success");
+      setStatus(text("home.contactFormSuccess"));
+    } catch {
+      setSubmitState("error");
+      setStatus(text("home.contactFormError"));
+    }
+  }
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -287,7 +315,7 @@ export default function Home() {
                       className={styles.input}
                       value={form.name}
                       onChange={onChange}
-                      placeholder={t("home.contactFormNamePlaceholder")}
+                      placeholder={text("home.contactFormNamePlaceholder")}
                       autoComplete="name"
                     />
                   </div>
@@ -299,10 +327,11 @@ export default function Home() {
                     <input
                       id="email"
                       name="email"
+                      type="email"
                       className={styles.input}
                       value={form.email}
                       onChange={onChange}
-                      placeholder={t("home.contactFormEmailPlaceholder")}
+                      placeholder={text("home.contactFormEmailPlaceholder")}
                       autoComplete="email"
                     />
                   </div>
@@ -317,21 +346,22 @@ export default function Home() {
                       className={styles.textarea}
                       value={form.message}
                       onChange={onChange}
-                      placeholder={t("home.contactFormMessagePlaceholder")}
+                      placeholder={text("home.contactFormMessagePlaceholder")}
                       rows={5}
                     />
                   </div>
 
                   <div className={styles.formActions}>
-                    <Button variant="primary" type="submit">
-                      {t("home.contactFormSubmit")}
+                    <Button variant="primary" type="submit" disabled={submitState === "loading"}>
+                      {submitState === "loading" ? t("home.contactFormSending") : t("home.contactFormSubmit")}
                     </Button>
-                    <a className={styles.mailto} href={mailTo}>
-                      {t("home.contactFormMailto")}
-                    </a>
                   </div>
 
-                  {status ? <p className={styles.status}>{status}</p> : null}
+                  {status ? (
+                    <p className={`${styles.status} ${styles[`status${submitState}`]}`} aria-live="polite">
+                      {status}
+                    </p>
+                  ) : null}
                 </form>
               </div>
             </div>

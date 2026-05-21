@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import TopNav from "../TopNav/TopNav.jsx";
+import TopNav from "../TopNav/TopNav";
 import styles from "./AppLayout.module.css";
 
 export default function AppLayout() {

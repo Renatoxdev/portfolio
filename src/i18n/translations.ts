@@ -54,7 +54,7 @@ export const translations = {
       skillsFrontItems: [
         "JavaScript (ES6+)",
         "HTML5 & CSS3",
-        "React.js",
+        "React",
         "Vite",
         "Tailwind CSS",
         "TypeScript (noções)",
@@ -87,7 +87,7 @@ export const translations = {
       ],
 
       skillsDeployTitle: "Deploy & Versionamento",
-      skillsDeployItems: ["Git & GitHub", "Vercel", "CI/CD", "Node.js"],
+      skillsDeployItems: ["Git & GitHub", "Vercel", "CI/CD", "Node"],
 
       contactTitle: "Contato",
       contactSubtitle: "Me chame para oportunidades ou projetos",
@@ -102,7 +102,9 @@ export const translations = {
       contactFormMessagePlaceholder: "Escreva sua mensagem...",
       contactFormSubmit: "Enviar mensagem",
       contactFormInvalid: "Preencha nome, email e mensagem.",
-      contactFormOpening: "Abrindo seu cliente de e-mail...",
+      contactFormSending: "Enviando mensagem...",
+      contactFormSuccess: "Mensagem enviada com sucesso.",
+      contactFormError: "Não foi possível enviar agora. Tente novamente.",
       contactFormMailto: "Enviar email",
     },
 
@@ -115,7 +117,7 @@ export const translations = {
       notFoundTitle: "Projeto não encontrado",
       back: "Voltar",
       noShotsTitle: "Sem screenshots por enquanto",
-      noShotsText: "Adicione imagens e coloque os caminhos no projects.js.",
+      noShotsText: "Adicione imagens e coloque os caminhos no projects.",
     },
 
     notFound: {
@@ -180,7 +182,7 @@ export const translations = {
       skillsFrontItems: [
         "JavaScript (ES6+)",
         "HTML5 & CSS3",
-        "React.js",
+        "React",
         "Vite",
         "Tailwind CSS",
         "TypeScript (basics)",
@@ -213,7 +215,7 @@ export const translations = {
       ],
 
       skillsDeployTitle: "Deploy & Version Control",
-      skillsDeployItems: ["Git & GitHub", "Vercel", "CI/CD", "Node.js"],
+      skillsDeployItems: ["Git & GitHub", "Vercel", "CI/CD", "Node"],
 
       contactTitle: "Contact",
       contactSubtitle: "Reach out for opportunities or projects",
@@ -228,7 +230,9 @@ export const translations = {
       contactFormMessagePlaceholder: "Write your message...",
       contactFormSubmit: "Send message",
       contactFormInvalid: "Please fill in name, email and message.",
-      contactFormOpening: "Opening your email client...",
+      contactFormSending: "Sending message...",
+      contactFormSuccess: "Message sent successfully.",
+      contactFormError: "Could not send right now. Please try again.",
       contactFormMailto: "Send email",
     },
 
@@ -241,7 +245,7 @@ export const translations = {
       notFoundTitle: "Project not found",
       back: "Back",
       noShotsTitle: "No screenshots yet",
-      noShotsText: "Add images and set the paths in projects.js.",
+      noShotsText: "Add images and set the paths in projects.",
     },
 
     notFound: {

@@ -1,22 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import Container from "../../components/Container/Container.jsx";
-import Tag from "../../components/Tag/Tag.jsx";
+import Container from "../../components/Container/Container";
+import Tag from "../../components/Tag/Tag";
 import styles from "./ProjectDetails.module.css";
-import { getProjectBySlug } from "../../data/projects.js";
-import { useI18n } from "../../i18n/useI18n.js";
-
-function pickLang(value, lang) {
-  if (typeof value === "string") return value;
-  if (value && typeof value === "object") return value[lang] ?? value.pt ?? "";
-  return "";
-}
-
-function pickList(value, lang) {
-  if (Array.isArray(value)) return value;
-  if (value && typeof value === "object" && Array.isArray(value[lang])) return value[lang];
-  if (value && typeof value === "object" && Array.isArray(value.pt)) return value.pt;
-  return [];
-}
+import { getProjectBySlug } from "../../data/projects";
+import { useI18n } from "../../i18n/useI18n";
 
 export default function ProjectDetails() {
   const { slug } = useParams();
@@ -38,11 +25,11 @@ export default function ProjectDetails() {
     );
   }
 
-  const images = Array.isArray(project.images) ? project.images : [];
-  const title = pickLang(project.title, lang);
-  const summary = pickLang(project.summary, lang);
-  const details = pickList(project.details, lang);
-  const techList = pickList(project.tech, lang);
+  const images = project.images;
+  const title = project.title[lang];
+  const summary = project.summary[lang];
+  const details = project.details[lang];
+  const techList = project.tech[lang];
 
   return (
     <div className={styles.page}>

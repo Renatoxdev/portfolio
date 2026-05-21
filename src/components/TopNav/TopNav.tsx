@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Container from "../Container/Container.jsx";
-import Button from "../Button/Button.jsx";
+import Container from "../Container/Container";
+import Button from "../Button/Button";
 import styles from "./TopNav.module.css";
-import { useI18n } from "../../i18n/useI18n.js";
+import { useI18n } from "../../i18n/useI18n";
 
 export default function TopNav() {
   const { lang, setLang, t } = useI18n();

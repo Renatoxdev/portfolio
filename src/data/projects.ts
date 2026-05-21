@@ -2,8 +2,9 @@ import portfolio1 from "../assets/portfolio1.png";
 import portfolio2 from "../assets/portfolio2.png";
 import portfolio3 from "../assets/portfolio3.png";
 import portfolio6 from "../assets/portfolio6.png";
+import type { Project } from "../types/project";
 
-export const projects = [
+export const projects: Project[] = [
   {
     slug: "simulador-gastos",
     title: { pt: "Simulador de Gastos", en: "Spending Tracker" },
@@ -85,6 +86,6 @@ export const projects = [
   },
 ];
 
-export function getProjectBySlug(slug) {
+export function getProjectBySlug(slug?: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }

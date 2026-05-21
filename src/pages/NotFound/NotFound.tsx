@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Container from "../../components/Container/Container.jsx";
-import { useI18n } from "../../i18n/useI18n.js";
+import Container from "../../components/Container/Container";
+import { useI18n } from "../../i18n/useI18n";
 import styles from "./NotFound.module.css";
 
 export default function NotFound() {

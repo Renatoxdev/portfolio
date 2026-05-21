@@ -423,6 +423,18 @@
   color: var(--warning);
 }
 
+.statusloading {
+  color: var(--warning);
+}
+
+.statussuccess {
+  color: #7dffad;
+}
+
+.statuserror {
+  color: var(--accent);
+}
+
 @keyframes titlePulse {
   0%,
   100% {

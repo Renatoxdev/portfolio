@@ -1,6 +1,14 @@
 import styles from "./Section.module.css";
+import type { ReactNode } from "react";
 
-export default function Section({ id, title, subtitle, children }) {
+type SectionProps = {
+  id: string;
+  title: ReactNode;
+  subtitle?: ReactNode;
+  children: ReactNode;
+};
+
+export default function Section({ id, title, subtitle, children }: SectionProps) {
   return (
     <section id={id} className={styles.section}>
       <div className={styles.head}>
