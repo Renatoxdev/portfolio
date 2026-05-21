@@ -309,6 +309,19 @@
   transform: translateY(-2px);
 }
 
+.whatsappLink {
+  border-color: rgba(37, 211, 102, 0.46);
+  background:
+    linear-gradient(90deg, rgba(37, 211, 102, 0.18), rgba(0, 240, 255, 0.06)),
+    rgba(37, 211, 102, 0.06);
+}
+
+.whatsappLink:hover {
+  border-color: #25d366;
+  color: #7dffad;
+  box-shadow: 0 0 24px rgba(37, 211, 102, 0.2);
+}
+
 .h3 {
   margin: 0 0 10px;
   color: var(--text);

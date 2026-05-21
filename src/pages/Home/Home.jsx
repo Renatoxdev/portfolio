@@ -262,6 +262,14 @@ export default function Home() {
                   <a className={styles.link} href="mailto:Renatoxdev@gmail.com">
                     Email
                   </a>
+                  <a
+                    className={`${styles.link} ${styles.whatsappLink}`}
+                    href="https://wa.me/5524993120479"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp
+                  </a>
                 </div>
               </div>
 
