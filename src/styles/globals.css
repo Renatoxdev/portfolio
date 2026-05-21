@@ -1,0 +1,125 @@
+:root {
+  --bg: #07070b;
+  --bg-deep: #010205;
+  --surface: rgba(12, 13, 20, 0.86);
+  --surface-2: rgba(28, 20, 42, 0.74);
+  --surface-strong: rgba(31, 32, 40, 0.94);
+
+  --text: #fff7d7;
+  --muted: #b7bbca;
+  --muted-strong: #edf0ff;
+
+  --border: rgba(0, 240, 255, 0.32);
+  --border-hot: rgba(255, 45, 85, 0.48);
+
+  --primary: #00f0ff;
+  --primaryText: #06080d;
+  --accent: #ff2d55;
+  --warning: #fcee09;
+  --violet: #9b5cff;
+
+  --shadow-neon: 0 0 20px rgba(0, 240, 255, 0.24), 0 0 46px rgba(255, 45, 85, 0.16);
+  --cut-corners: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Inter, "Rajdhani", "Orbitron", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(0, 240, 255, 0.2), transparent 24rem),
+    radial-gradient(circle at 82% 4%, rgba(252, 238, 9, 0.16), transparent 22rem),
+    radial-gradient(circle at 78% 72%, rgba(255, 45, 85, 0.18), transparent 28rem),
+    linear-gradient(180deg, #11100b 0%, var(--bg) 32%, var(--bg-deep) 100%);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(252, 238, 9, 0.06) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 46%, rgba(255, 45, 85, 0.1) 47% 48%, transparent 49%);
+  background-size: 54px 54px, 54px 54px, 220px 220px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.22));
+  animation: cityGrid 18s linear infinite;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.08), transparent 18%, transparent 82%, rgba(255, 45, 85, 0.08));
+  opacity: 0.34;
+  mix-blend-mode: screen;
+  animation: scanDrift 7s linear infinite;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(252, 238, 9, 0.86);
+  color: #08080a;
+}
+
+:focus-visible {
+  outline: 3px solid var(--warning);
+  outline-offset: 3px;
+}
+
+@keyframes cityGrid {
+  to {
+    background-position: 54px 54px, -54px 54px, 220px 220px;
+  }
+}
+
+@keyframes scanDrift {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

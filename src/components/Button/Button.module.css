@@ -1,0 +1,59 @@
+.button {
+  min-height: 44px;
+  border: 1px solid var(--border);
+  padding: 11px 15px;
+  font-weight: 950;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, filter 160ms ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  clip-path: var(--cut-corners);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  transform: translateX(-130%);
+  transition: transform 420ms ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:hover::after {
+  transform: translateX(130%);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--warning), #fff875 52%, var(--primary));
+  color: var(--primaryText);
+  border-color: var(--warning);
+  box-shadow: 0 0 22px rgba(252, 238, 9, 0.26), 0 0 18px rgba(0, 240, 255, 0.12);
+}
+
+.primary:hover {
+  box-shadow: 0 0 32px rgba(252, 238, 9, 0.38), 0 0 26px rgba(0, 240, 255, 0.2);
+}
+
+.secondary {
+  background:
+    linear-gradient(90deg, rgba(255, 45, 85, 0.16), rgba(0, 240, 255, 0.08)),
+    rgba(255, 45, 85, 0.08);
+  color: var(--text);
+  border-color: var(--border-hot);
+}
+
+.secondary:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 26px rgba(255, 45, 85, 0.24);
+}
