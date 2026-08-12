@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import ImageSlider from "../ImageSlider/ImageSlider";
+import ProjectActions from "../ProjectActions/ProjectActions";
 import Tag from "../Tag/Tag";
 import styles from "./ProjectCard.module.css";
 import { useI18n } from "../../i18n/useI18n";
@@ -10,24 +11,15 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { lang, t } = useI18n();
-  const cover = project.images[0];
 
   const title = project.title[lang];
   const summary = project.summary[lang];
   const techList = project.tech[lang].slice(0, 3);
 
-  const imgClass = styles.coverImg ?? styles.img;
-
   return (
     <article className={styles.card}>
       <div className={styles.cover}>
-        {cover ? (
-          <img className={imgClass} src={cover} alt="" />
-        ) : (
-          <div className={styles.placeholder}>
-            <span className={styles.placeholderText}>{t("common.noImage")}</span>
-          </div>
-        )}
+        <ImageSlider images={project.images} alt={title} emptyLabel={t("common.noImage")} />
       </div>
 
       <div className={styles.body}>
@@ -40,23 +32,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className={styles.actions}>
-          <Link className={styles.details} to={`/projects/${project.slug}`}>
-            {t("common.details")}
-          </Link>
-
-          {project.repoUrl ? (
-            <a className={styles.action} href={project.repoUrl} target="_blank" rel="noreferrer">
-              {t("common.repoShort")}
-            </a>
-          ) : null}
-
-          {project.demoUrl ? (
-            <a className={styles.action} href={project.demoUrl} target="_blank" rel="noreferrer">
-              {t("common.demoShort")}
-            </a>
-          ) : null}
-        </div>
+        <ProjectActions project={project} detailsHref={`/projects/${project.slug}`} className={styles.actions} />
       </div>
     </article>
   );

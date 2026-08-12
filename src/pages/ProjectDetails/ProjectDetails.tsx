@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import Container from "../../components/Container/Container";
+import ImageSlider from "../../components/ImageSlider/ImageSlider";
+import ProjectActions from "../../components/ProjectActions/ProjectActions";
 import Tag from "../../components/Tag/Tag";
 import styles from "./ProjectDetails.module.css";
 import { getProjectBySlug } from "../../data/projects";
@@ -49,19 +51,7 @@ export default function ProjectDetails() {
               ))}
             </div>
 
-            <div className={styles.pageActions}>
-              {project.repoUrl ? (
-                <a className={styles.pageAction} href={project.repoUrl} target="_blank" rel="noreferrer">
-                  {t("project.repo")}
-                </a>
-              ) : null}
-
-              {project.demoUrl ? (
-                <a className={styles.pageAction} href={project.demoUrl} target="_blank" rel="noreferrer">
-                  {t("project.demo")}
-                </a>
-              ) : null}
-            </div>
+            <ProjectActions project={project} className={styles.pageActions} />
           </div>
         </div>
 
@@ -79,13 +69,7 @@ export default function ProjectDetails() {
             <h2 className={styles.h2}>{t("project.screenshots")}</h2>
 
             {images.length ? (
-              <div className={styles.gallery}>
-                {images.map((src) => (
-                  <div key={src} className={styles.shot}>
-                    <img className={styles.shotImg} src={src} alt="" />
-                  </div>
-                ))}
-              </div>
+              <ImageSlider images={images} alt={title} emptyLabel={t("common.noImage")} variant="detail" />
             ) : (
               <div className={styles.emptyShots}>
                 <p className={styles.emptyTitle}>{t("project.noShotsTitle")}</p>

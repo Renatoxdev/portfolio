@@ -2,9 +2,44 @@ import portfolio1 from "../assets/portfolio1.png";
 import portfolio2 from "../assets/portfolio2.png";
 import portfolio3 from "../assets/portfolio3.png";
 import portfolio6 from "../assets/portfolio6.png";
+import portfolio7 from "../assets/portfolio7.png";
+import portfolio8 from "../assets/portfolio8.png";
 import type { Project } from "../types/project";
 
 export const projects: Project[] = [
+  {
+    slug: "ticketflow",
+    title: { pt: "TicketFlow", en: "TicketFlow" },
+    summary: {
+      pt: "Plataforma full stack de sessões de cinema e ingressos com checkout simulado, QR Code e validação na portaria.",
+      en: "Full stack movie session and ticketing platform with simulated checkout, QR Code tickets and gate validation.",
+    },
+    tech: {
+      pt: ["React", "TypeScript", "Vite", "FastAPI", "SQLAlchemy", "PostgreSQL", "JWT", "Docker"],
+      en: ["React", "TypeScript", "Vite", "FastAPI", "SQLAlchemy", "PostgreSQL", "JWT", "Docker"],
+    },
+    repoUrl: "https://github.com/Renatoxdev/ticketflow",
+    demoUrl: "https://ticketflow-1-sszk.onrender.com/",
+    images: [portfolio7, portfolio8],
+    details: {
+      pt: [
+        "Busca de filmes e séries em catálogo externo usando TVMaze",
+        "Publicação de sessões com título, sinopse, pôster, data, sala, capacidade e preço",
+        "Vitrine de filmes em cartaz com pôsteres clicáveis e exibição de ocupação",
+        "Checkout com pagamento simulado e emissão de ingresso com token público e QR Code",
+        "Validação de entrada na portaria com bloqueio de reutilização de ingresso",
+        "Controle de capacidade com transação e lock no PostgreSQL para evitar overbooking",
+      ],
+      en: [
+        "Movie and TV show search through the external TVMaze catalog",
+        "Session publishing with title, synopsis, poster, date, room, capacity and price",
+        "Now-showing gallery with clickable posters and occupancy display",
+        "Checkout with simulated payment and ticket issuing through public token and QR Code",
+        "Gate entry validation with ticket reuse blocking",
+        "Capacity control with PostgreSQL transactions and locking to prevent overbooking",
+      ],
+    },
+  },
   {
     slug: "simulador-gastos",
     title: { pt: "Simulador de Gastos", en: "Spending Tracker" },
@@ -17,7 +52,7 @@ export const projects: Project[] = [
       en: ["Next.js", "React", "TypeScript", "FastAPI", "SQLAlchemy", "SQLite", "Pydantic", "PWA"],
     },
     repoUrl: "https://github.com/Renatoxdev/simulador-gastos",
-    demoUrl: "",
+    demoUrl: "https://simulador-gastos.vercel.app/",
     images: [portfolio1, portfolio2],
     details: {
       pt: [
@@ -47,8 +82,8 @@ export const projects: Project[] = [
       pt: ["FastAPI", "SQLAlchemy", "SQLite", "Jinja2", "Python"],
       en: ["FastAPI", "SQLAlchemy", "SQLite", "Jinja2", "Python"],
     },
-    repoUrl: "",
-    demoUrl: "",
+    repoUrl: "https://github.com/Renatoxdev/Estoque-de-Restaurante",
+    demoUrl: "https://restaurant-inventory-nu.vercel.app/",
     images: [portfolio3],
     details: {
       pt: [
@@ -76,8 +111,8 @@ export const projects: Project[] = [
       pt: ["Next.js", "GitHub Actions", "Vercel"],
       en: ["Next.js", "GitHub Actions", "Vercel"],
     },
-    repoUrl: "",
-    demoUrl: "",
+    repoUrl: "https://github.com/Renatoxdev/landing-ci-cd",
+    demoUrl: "https://landing-ci-cd.vercel.app/",
     images: [portfolio6],
     details: {
       pt: ["Lint/Build automatizados", "Deploy contínuo"],

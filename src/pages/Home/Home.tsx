@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Section from "../../components/Section/Section";
@@ -25,7 +25,11 @@ export default function Home() {
   const [form, setForm] = useState<ContactForm>({ name: "", email: "", message: "" });
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [status, setStatus] = useState("");
+  const projectsTrackRef = useRef<HTMLDivElement>(null);
+  const [projectIndex, setProjectIndex] = useState(0);
+  const [visibleProjects, setVisibleProjects] = useState(3);
   const text = (key: string) => String(t(key));
+  const maxProjectIndex = Math.max(0, projects.length - visibleProjects);
 
   useEffect(() => {
     if (!location.hash) return;
@@ -33,6 +37,23 @@ export default function Home() {
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [location.hash]);
+
+  useEffect(() => {
+    updateVisibleProjects();
+    window.addEventListener("resize", updateVisibleProjects);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleProjects);
+    };
+  }, []);
+
+  useEffect(() => {
+    setProjectIndex((current) => Math.min(current, maxProjectIndex));
+  }, [maxProjectIndex]);
+
+  useEffect(() => {
+    scrollProjectsToIndex(projectIndex);
+  }, [projectIndex]);
 
   const aboutQuickItems = t("home.aboutQuickItems");
   const frontItems = t("home.skillsFrontItems");
@@ -44,6 +65,32 @@ export default function Home() {
   function onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function updateVisibleProjects() {
+    if (window.innerWidth <= 620) {
+      setVisibleProjects(1);
+      return;
+    }
+
+    if (window.innerWidth <= 980) {
+      setVisibleProjects(2);
+      return;
+    }
+
+    setVisibleProjects(3);
+  }
+
+  function scrollProjects(direction: -1 | 1) {
+    setProjectIndex((current) => Math.min(Math.max(current + direction, 0), maxProjectIndex));
+  }
+
+  function scrollProjectsToIndex(index: number) {
+    const track = projectsTrackRef.current;
+    const slide = track?.querySelectorAll<HTMLElement>("[data-project-slide]")[index];
+    if (!track || !slide) return;
+
+    track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: "smooth" });
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -205,10 +252,34 @@ export default function Home() {
 
         <Section id="projects" title={t("home.projectsTitle")} subtitle={t("home.projectsSubtitle")}>
           <Container>
-            <div className={styles.projectsGrid}>
-              {projects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
+            <div className={styles.projectsCarousel}>
+              <button
+                className={`${styles.carouselButton} ${styles.carouselPrev}`}
+                type="button"
+                onClick={() => scrollProjects(-1)}
+                disabled={projectIndex === 0}
+                aria-label="Projeto anterior"
+              >
+                &lt;
+              </button>
+
+              <div className={styles.projectsTrack} ref={projectsTrackRef}>
+                {projects.map((project) => (
+                  <div className={styles.projectSlide} key={project.slug} data-project-slide>
+                    <ProjectCard project={project} />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className={`${styles.carouselButton} ${styles.carouselNext}`}
+                type="button"
+                onClick={() => scrollProjects(1)}
+                disabled={projectIndex >= maxProjectIndex}
+                aria-label="Proximo projeto"
+              >
+                &gt;
+              </button>
             </div>
           </Container>
         </Section>
