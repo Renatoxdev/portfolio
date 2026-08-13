@@ -2,7 +2,7 @@
   position: relative;
   padding: 72px 0;
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .section::before {
@@ -44,6 +44,7 @@
   text-transform: uppercase;
   color: var(--warning);
   text-shadow: 2px 0 0 rgba(0, 240, 255, 0.34), -2px 0 0 rgba(255, 45, 85, 0.28);
+  overflow-wrap: normal;
 }
 
 .subtitle {
@@ -55,4 +56,19 @@
 
 .body {
   width: 100%;
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .head {
+    width: min(1120px, calc(100% - 28px));
+  }
+
+  .title {
+    font-size: clamp(24px, 9vw, 34px);
+    line-height: 1.08;
+  }
 }

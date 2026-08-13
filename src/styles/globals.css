@@ -43,6 +43,7 @@ body {
     linear-gradient(180deg, #11100b 0%, var(--bg) 32%, var(--bg-deep) 100%);
   color: var(--text);
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -86,6 +87,16 @@ img {
 
 a {
   color: inherit;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+button,
+a {
+  overflow-wrap: anywhere;
 }
 
 ::selection {

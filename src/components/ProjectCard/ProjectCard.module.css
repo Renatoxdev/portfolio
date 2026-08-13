@@ -70,6 +70,7 @@
   letter-spacing: 0;
   text-transform: uppercase;
   text-shadow: 0 0 14px rgba(252, 238, 9, 0.18);
+  line-height: 1.2;
 }
 
 .summary {
@@ -92,6 +93,7 @@
 @media (max-width: 560px) {
   .body {
     min-height: 0;
+    padding: 16px;
+    gap: 10px;
   }
-
 }

@@ -145,4 +145,32 @@
   .cta {
     display: none;
   }
+
+  .inner {
+    gap: 8px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .lang {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .langBtn {
+    padding: 7px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand {
+    font-size: 12px;
+  }
+
+  .langBtn {
+    padding: 6px 7px;
+    font-size: 12px;
+  }
 }

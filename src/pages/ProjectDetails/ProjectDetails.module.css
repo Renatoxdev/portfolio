@@ -53,6 +53,7 @@
   text-transform: uppercase;
   color: var(--warning);
   text-shadow: 3px 0 0 rgba(0, 240, 255, 0.48), -3px 0 0 rgba(255, 45, 85, 0.42);
+  overflow-wrap: normal;
 }
 
 .pageSummary {
@@ -169,5 +170,35 @@
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 34px 0 54px;
+  }
+
+  .head {
+    padding: 22px 18px;
+  }
+
+  .pageTitle {
+    max-width: 100%;
+    font-size: clamp(34px, 12vw, 54px);
+    line-height: 1;
+    text-shadow: 2px 0 0 rgba(0, 240, 255, 0.42), -2px 0 0 rgba(255, 45, 85, 0.36);
+  }
+
+  .pageSummary {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .card {
+    padding: 18px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pageTitle {
+    font-size: clamp(30px, 11vw, 42px);
   }
 }

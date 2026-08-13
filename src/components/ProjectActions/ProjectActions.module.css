@@ -2,6 +2,7 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .link {
@@ -16,7 +17,7 @@
   color: var(--text);
   text-decoration: none;
   font-weight: 900;
-  white-space: nowrap;
+  min-width: 0;
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
 }
@@ -45,4 +46,11 @@
   width: 18px;
   height: 18px;
   flex: 0 0 18px;
+}
+
+@media (max-width: 560px) {
+  .link {
+    flex: 1 1 120px;
+    padding: 9px 10px;
+  }
 }

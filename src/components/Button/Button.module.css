@@ -11,6 +11,7 @@
   clip-path: var(--cut-corners);
   position: relative;
   overflow: hidden;
+  line-height: 1.2;
 }
 
 .button::after {
@@ -56,4 +57,10 @@
 .secondary:hover {
   border-color: var(--accent);
   box-shadow: 0 0 26px rgba(255, 45, 85, 0.24);
+}
+
+@media (max-width: 620px) {
+  .button {
+    width: 100%;
+  }
 }
