@@ -19,7 +19,7 @@ export const projects: Project[] = [
       en: ["React", "TypeScript", "Vite", "FastAPI", "SQLAlchemy", "PostgreSQL", "JWT", "Docker"],
     },
     repoUrl: "https://github.com/Renatoxdev/Desafio-Ticketflow",
-    demoUrl: "https://ticketflow-2-bz3v.onrender.com/",
+    demoUrl: "https://ticketflow-1-sszk.onrender.com/",
     images: [portfolio7, portfolio8],
     details: {
       pt: [
